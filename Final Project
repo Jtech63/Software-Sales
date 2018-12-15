@@ -1,0 +1,85 @@
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void quantityTextBox_TextChanged(object sender, EventArgs e)
+        {
+            const decimal PACKAGE_COST_double = 99;
+            const decimal TWENTY_DISCOUNT_DECIMAL = 0.2m;
+            const decimal THRITY_DISCOUNT_DECIMAL = 0.3m;
+            const decimal FORTY_DISCOUNT_DECIMAL = 0.4m;
+            const decimal FIFTY_DISCOUNT_DECIMAL = 0.5m;
+
+            int quantityInteger;
+            quantityInteger = int.Parse(quantityTextBox.Text);
+
+            decimal costNoDiscountDecimal;
+            decimal discountRateInteger;
+            decimal discount_Total;
+            decimal total;
+
+            
+
+            try
+            {
+                quantityInteger = int.Parse(quantityTextBox.Text);
+                costNoDiscountDecimal = quantityInteger * PACKAGE_COST_double;
+              
+
+                if ((quantityInteger >= 0) && (quantityInteger < 10))
+                {
+                    discountRateInteger = 0;
+                  
+                }
+                else if
+                    
+                ((quantityInteger >= 10) && (quantityInteger < 20))
+
+                {
+                    discountRateInteger = 0.2m;
+                    discount_Total = costNoDiscountDecimal * discountRateInteger;
+                    total = costNoDiscountDecimal - discount_Total;
+                    resultsBox.Text = total.ToString("c");
+                }
+                else if
+
+
+                            ((quantityInteger >= 20) && (quantityInteger < 50))
+
+                {
+                    discountRateInteger = 0.3m;
+                }
+                else if
+
+
+                            ((quantityInteger >= 50) && (quantityInteger < 100))
+
+                {
+                    discountRateInteger = 0.4m;
+                }
+                else if
+                ((quantityInteger >= 100))
+
+                {
+                    discountRateInteger = 0.5m;
+                }
+            }
+            catch { }
+
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
